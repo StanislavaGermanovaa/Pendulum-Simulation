@@ -2,25 +2,32 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.PerspectiveCamera?>
+<?import javafx.scene.PointLight?>
 <?import javafx.scene.SubScene?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Box?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simulation.demoproject.controllers.Pendulum">
    <children>
-      <SubScene fx:id="subScene" height="502.0" layoutX="-1.0" width="408.0">
+      <SubScene fx:id="subScene" height="502.0" layoutX="-1.0" width="408.0" depthBuffer="true">
         <root>
           <Region />
         </root>
       </SubScene>
-      <Group fx:id="group" layoutX="-70.0" layoutY="57.0" AnchorPane.leftAnchor="-315.0" AnchorPane.topAnchor="-343.0">
+      <Group layoutX="-70.0" layoutY="57.0" AnchorPane.leftAnchor="-315.0" AnchorPane.topAnchor="-343.0">
          <children>
             <Box fx:id="pendulumSide1" depth="20.0" height="20.0" layoutX="-226.0" layoutY="-50.0" rotate="90.0" width="700.0" />
             <Box fx:id="pendulumSide2" depth="20.0" height="20.0" layoutX="241.0" layoutY="-50.0" rotate="90.0" width="700.0" />
             <Box fx:id="pendulumBase" depth="500.0" height="10.0" layoutX="5.0" layoutY="300.0" width="520.0" />
             <Box fx:id="pendulumTop" depth="50.0" height="50.0" layoutX="5.0" layoutY="-395.0" width="500.0" />
             <PerspectiveCamera fx:id="camera" farClip="2000.0" layoutX="5.0" layoutY="3.0" translateZ="-1000.0" />
+            <PointLight fx:id="light" layoutX="-16.0" layoutY="55.0" lightOn="true" translateY="-500.0" translateZ="-1000.0">
+               <color>
+                  <Color red="0.9984567761421204" green="1.0" blue="0.9969135522842407" />
+               </color>
+            </PointLight>
          </children>
       </Group>
    </children>

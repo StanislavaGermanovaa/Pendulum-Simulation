@@ -2,17 +2,24 @@ package com.example.simulation.demoproject.controllers;
 
 import com.example.simulation.demoproject.models.SmartGroup;
 import javafx.fxml.FXML;
-import javafx.scene.Camera;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.PointLight;
 import javafx.scene.SubScene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.transform.Rotate;
 
 public class Pendulum {
 
     @FXML
-    private Camera camera;
+    private PerspectiveCamera camera;
+
+    @FXML
+    private PointLight light;
 
     @FXML
     private AnchorPane anchorPane;
@@ -37,22 +44,34 @@ public class Pendulum {
     private final Rotate rotateX = new Rotate(0, Rotate.X_AXIS);
     private final Rotate rotateY = new Rotate(0, Rotate.Y_AXIS);
 
-    public Camera getCamera() {
-        return camera;
-    }
+//    public Camera getCamera() {
+//        return camera;
+//    }
 
     public void initialize() {
-        // Add the pendulum components to the SmartGroup
-        group.getChildren().addAll(pendulumSide1, pendulumSide2, pendulumTop, pendulumBase);
 
-        // Attach the rotations to the SmartGroup
+        prepareBox(pendulumSide1);
+        prepareBox(pendulumSide2);
+        prepareBox(pendulumTop);
+        prepareBox(pendulumBase);
+
+        group.getChildren().addAll(pendulumSide1, pendulumSide2, pendulumTop, pendulumBase,light);
+
         group.getTransforms().addAll(rotateX, rotateY);
 
-        // Add the SmartGroup to the SubScene
         subScene.setRoot(group);
         subScene.setCamera(camera);
 
         initMouseControl(group, anchorPane);
+    }
+
+    private void prepareBox(Box box) {
+        PhongMaterial material=new PhongMaterial();
+        material.setDiffuseMap(new Image(getClass().getResourceAsStream("/images/wood.jpeg")));
+        material.setSpecularColor(Color.GRAY);
+
+
+        box.setMaterial(material);
     }
 
     private void initMouseControl(SmartGroup group, AnchorPane scene) {

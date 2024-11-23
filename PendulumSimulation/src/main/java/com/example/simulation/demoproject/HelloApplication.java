@@ -1,6 +1,6 @@
 package com.example.simulation.demoproject;
 
-import com.example.simulation.demoproject.controllers.Pendulum;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
