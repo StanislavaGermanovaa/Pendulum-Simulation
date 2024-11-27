@@ -4,20 +4,22 @@
 <?import javafx.scene.PerspectiveCamera?>
 <?import javafx.scene.SubScene?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Sphere?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simulation.demoproject.controllers.Pendulum">
+<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simulation.demoproject.controllers.Pendulum">
    <children>
+      <BorderPane layoutX="8.0" layoutY="1.0" prefHeight="502.0" prefWidth="401.0" style="-fx-background-image: url('/images/gray-background.jpg'); -fx-border-color: black; -fx-border-width: 3; -fx-background-size: cover; -fx-background-position: center;" />
       <SubScene fx:id="subScene" depthBuffer="true" height="502.0" layoutX="-1.0" width="408.0">
         <root>
           <Region />
         </root>
       </SubScene>
-      <Group layoutX="-70.0" layoutY="57.0" AnchorPane.leftAnchor="-315.0" AnchorPane.topAnchor="-343.0">
+      <Group layoutX="43.0" layoutY="88.0" AnchorPane.leftAnchor="-212.0" AnchorPane.topAnchor="-332.0">
          <children>
             <Box fx:id="pendulumSide1" depth="20.0" height="20.0" layoutX="-226.0" layoutY="-50.0" rotate="90.0" width="700.0" />
             <Box fx:id="pendulumSide2" depth="20.0" height="20.0" layoutX="241.0" layoutY="-50.0" rotate="90.0" width="700.0" />
