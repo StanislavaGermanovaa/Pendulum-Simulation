@@ -11,12 +11,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Sphere;
 import javafx.scene.transform.Rotate;
 
-public class Pendulum {
-
+public class SpringPendulum {
     @FXML
     private PerspectiveCamera camera;
 
@@ -38,13 +35,6 @@ public class Pendulum {
 
     @FXML
     private Circle circle;
-
-    @FXML
-    private Line line;
-
-    @FXML
-    private Sphere sphere;
-
     private final SmartGroup group = new SmartGroup();
 
     private double mousePosX, mousePosY;
@@ -58,9 +48,8 @@ public class Pendulum {
         prepareBox(pendulumSide2);
         prepareBox(pendulumTop);
         prepareBox(pendulumBase);
-        prepareSphere(sphere);
 
-        group.getChildren().addAll(pendulumSide1, pendulumSide2, pendulumTop, pendulumBase,circle,line,sphere);
+        group.getChildren().addAll(pendulumSide1, pendulumSide2, pendulumTop, pendulumBase,circle);
 
         group.getTransforms().addAll(rotateX, rotateY);
 
@@ -80,13 +69,6 @@ public class Pendulum {
         box.setMaterial(material);
     }
 
-    private void  prepareSphere(Sphere sphere){
-        PhongMaterial material=new PhongMaterial();
-        material.setDiffuseMap(new Image(getClass().getResourceAsStream("/images/metal.jpeg")));
-        material.setSpecularColor(Color.GRAY);
-
-        sphere.setMaterial(material);
-    }
 
     private void initMouseControl(SmartGroup group, AnchorPane scene) {
         scene.setOnMousePressed(this::handleMousePressed);

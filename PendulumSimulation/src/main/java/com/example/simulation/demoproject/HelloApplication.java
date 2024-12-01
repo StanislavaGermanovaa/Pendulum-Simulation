@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     private static final int HEIGHT = 600;
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pendulum.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("springPendulum.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(),WIDTH,HEIGHT,true);
 
