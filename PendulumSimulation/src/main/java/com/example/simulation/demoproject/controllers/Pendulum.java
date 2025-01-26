@@ -4,8 +4,8 @@ import com.example.simulation.demoproject.models.SmartGroup;
 import javafx.fxml.FXML;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.SubScene;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
@@ -45,6 +45,12 @@ public class Pendulum {
     @FXML
     private Sphere sphere;
 
+    @FXML
+    private Slider sliderLength;
+
+    @FXML
+    private Slider sliderMass;
+
     private final SmartGroup group = new SmartGroup();
 
     private double mousePosX, mousePosY;
@@ -67,7 +73,7 @@ public class Pendulum {
         subScene.setRoot(group);
         subScene.setCamera(camera);
 
-        initMouseControl(group, anchorPane);
+      //  initMouseControl(group, anchorPane);
     }
 
     private void prepareBox(Box box) {
@@ -88,33 +94,34 @@ public class Pendulum {
         sphere.setMaterial(material);
     }
 
-    private void initMouseControl(SmartGroup group, AnchorPane scene) {
-        scene.setOnMousePressed(this::handleMousePressed);
-        scene.setOnMouseDragged(this::handleMouseDragged);
+//    private void initMouseControl(SmartGroup group, AnchorPane scene) {
+//        scene.setOnMousePressed(this::handleMousePressed);
+//        scene.setOnMouseDragged(this::handleMouseDragged);
+//
+//        group.setOnScroll(scrollEvent -> {
+//            double delta = scrollEvent.getDeltaY();
+//            group.setTranslateZ(group.getTranslateZ() + delta);
+//        });
+//
+//    }
+//
+//    private void handleMousePressed(MouseEvent event) {
+//        mouseOldX = event.getSceneX();
+//        mouseOldY = event.getSceneY();
+//    }
+//
+//    private void handleMouseDragged(MouseEvent event) {
+//        mousePosX = event.getSceneX();
+//        mousePosY = event.getSceneY();
+//
+//        double deltaX = mousePosX - mouseOldX;
+//        double deltaY = mousePosY - mouseOldY;
+//
+//        rotateY.setAngle(rotateY.getAngle() - deltaX * 0.3);
+//        rotateX.setAngle(rotateX.getAngle() + deltaY * 0.3);
+//
+//        mouseOldX = mousePosX;
+//        mouseOldY = mousePosY;
+//    }
 
-        group.setOnScroll(scrollEvent -> {
-            double delta = scrollEvent.getDeltaY();
-            group.setTranslateZ(group.getTranslateZ() + delta);
-        });
-
-    }
-
-    private void handleMousePressed(MouseEvent event) {
-        mouseOldX = event.getSceneX();
-        mouseOldY = event.getSceneY();
-    }
-
-    private void handleMouseDragged(MouseEvent event) {
-        mousePosX = event.getSceneX();
-        mousePosY = event.getSceneY();
-
-        double deltaX = mousePosX - mouseOldX;
-        double deltaY = mousePosY - mouseOldY;
-
-        rotateY.setAngle(rotateY.getAngle() - deltaX * 0.3);
-        rotateX.setAngle(rotateX.getAngle() + deltaY * 0.3);
-
-        mouseOldX = mousePosX;
-        mouseOldY = mousePosY;
-    }
 }
