@@ -19,26 +19,9 @@
 <?import javafx.scene.shape.Sphere?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simulation.demoproject.controllers.Pendulum">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simulation.demoproject.controllers.Pendulum">
    <children>
-      <BorderPane layoutX="8.0" layoutY="1.0" prefHeight="502.0" prefWidth="401.0" style="-fx-background-image: url('/images/gray-background.jpg'); -fx-border-color: black; -fx-border-width: 3; -fx-background-size: cover; -fx-background-position: center;" />
-      <Group layoutX="43.0" layoutY="88.0" AnchorPane.leftAnchor="-212.0" AnchorPane.topAnchor="-332.0">
-         <children>
-            <Box fx:id="pendulumSide1" depth="20.0" height="20.0" layoutX="-226.0" layoutY="-50.0" rotate="90.0" width="700.0" />
-            <Box fx:id="pendulumSide2" depth="20.0" height="20.0" layoutX="241.0" layoutY="-50.0" rotate="90.0" width="700.0" />
-            <Box fx:id="pendulumBase" depth="500.0" height="10.0" layoutX="5.0" layoutY="300.0" width="520.0" />
-            <Box fx:id="pendulumTop" depth="50.0" height="50.0" layoutX="5.0" layoutY="-395.0" width="500.0" />
-            <PerspectiveCamera fx:id="camera" farClip="2000.0" layoutX="5.0" layoutY="3.0" translateZ="-1000.0" />
-            <Circle fx:id="circle" fill="#8d9196" layoutX="5.0" layoutY="-370.0" radius="19.0" stroke="BLACK" strokeType="INSIDE" />
-            <Line fx:id="line" endX="44.999969482421875" endY="-85.0" layoutX="-40.0" layoutY="-285.0" startX="45.0" startY="323.9999694824219" />
-            <Sphere fx:id="sphere" layoutX="5.0" layoutY="39.0" radius="50" />
-         </children>
-      </Group>
-      <SubScene fx:id="subScene" depthBuffer="true" height="502.0" layoutX="-1.0" width="408.0">
-        <root>
-          <Region />
-        </root>
-      </SubScene>
+      <BorderPane layoutX="8.0" layoutY="1.0" mouseTransparent="true" prefHeight="502.0" prefWidth="401.0" style="-fx-background-image: url('/images/gray-background.jpg'); -fx-border-color: black; -fx-border-width: 3; -fx-background-size: cover; -fx-background-position: center;" />
       <Label layoutX="508.0" layoutY="14.0" prefHeight="50.0" prefWidth="520.0" text="3D Pendulum Simulation">
          <font>
             <Font name="System Bold" size="36.0" />
@@ -72,23 +55,23 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="KeTextFlield" editable="false" layoutX="498.0" layoutY="535.0">
+      <TextField fx:id="KeTextField" disable="true" editable="false" layoutX="498.0" layoutY="535.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="PeTextField" editable="false" layoutX="740.0" layoutY="535.0">
+      <TextField fx:id="PeTextField" disable="true" editable="false" layoutX="740.0" layoutY="535.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
       <LineChart layoutX="431.0" layoutY="201.0" prefHeight="294.0" prefWidth="481.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
       </LineChart>
       <Button layoutX="8.0" layoutY="530.0" mnemonicParsing="false" text="Start">
          <font>
@@ -110,5 +93,22 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <SubScene fx:id="subScene" depthBuffer="true" height="502.0" layoutX="-1.0" width="408.0">
+         <root>
+            <Region />
+         </root>
+      </SubScene>
+      <Group layoutX="43.0" layoutY="88.0" AnchorPane.leftAnchor="-212.0" AnchorPane.topAnchor="-332.0">
+         <children>
+            <Box fx:id="pendulumSide1" depth="20.0" height="20.0" layoutX="-226.0" layoutY="-50.0" rotate="90.0" width="700.0" />
+            <Box fx:id="pendulumSide2" depth="20.0" height="20.0" layoutX="241.0" layoutY="-50.0" rotate="90.0" width="700.0" />
+            <Box fx:id="pendulumBase" depth="500.0" height="10.0" layoutX="5.0" layoutY="300.0" width="520.0" />
+            <Box fx:id="pendulumTop" depth="50.0" height="50.0" layoutX="5.0" layoutY="-395.0" width="500.0" />
+            <PerspectiveCamera fx:id="camera" farClip="2000.0" layoutX="5.0" layoutY="3.0" translateZ="-1000.0" />
+            <Circle fx:id="circle" fill="#8d9196" layoutX="5.0" layoutY="-370.0" radius="19.0" stroke="BLACK" strokeType="INSIDE" />
+            <Line fx:id="line" endX="44.999969482421875" endY="-85.0" layoutX="-40.0" layoutY="-285.0" startX="45.0" startY="323.9999694824219" />
+            <Sphere fx:id="sphere" layoutX="5.0" layoutY="39.0" radius="50" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

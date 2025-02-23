@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.PerspectiveCamera?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Box?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Sphere?>
+
+<BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simulation.demoproject.controllers.Pendulum">
+
+    <top>
+        <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="3D Pendulum Simulation" />
+    </top>
+
+    <center>
+        <AnchorPane fx:id="anchorPane" pickOnBounds="true">
+            <SubScene fx:id="subScene" depthBuffer="true" height="500.0" pickOnBounds="true" width="500.0">
+                <root>
+                    <Region />
+                </root>
+            </SubScene>
+            <Group layoutX="43.0" layoutY="88.0" pickOnBounds="true" AnchorPane.leftAnchor="-212.0" AnchorPane.topAnchor="-332.0">
+                <children>
+                    <Box fx:id="pendulumSide1" depth="20.0" height="20.0" layoutX="-226.0" layoutY="-50.0" rotate="90.0" width="700.0"  />
+                    <Box fx:id="pendulumSide2" depth="20.0" height="20.0" layoutX="241.0" layoutY="-50.0" rotate="90.0" width="700.0" />
+                    <Box fx:id="pendulumBase" depth="500.0" height="10.0" layoutX="5.0" layoutY="300.0" width="520.0" />
+                    <Box fx:id="pendulumTop" depth="50.0" height="50.0" layoutX="5.0" layoutY="-395.0" width="500.0" />
+                    <PerspectiveCamera fx:id="camera" farClip="2000.0" layoutX="5.0" layoutY="3.0" translateZ="-1000.0"/>
+                    <Circle fx:id="circle" fill="#8d9196" layoutX="5.0" layoutY="-370.0" radius="19.0" stroke="BLACK" strokeType="INSIDE" />
+                    <Line fx:id="line" endX="44.999969482421875" endY="-85.0" layoutX="-40.0" layoutY="-285.0" startX="45.0" startY="323.9999694824219"/>
+                    <Sphere fx:id="sphere" layoutX="5.0" layoutY="39.0" radius="50" />
+                </children>
+            </Group>
+        </AnchorPane>
+    </center>
+
+    <right>
+        <VBox fx:id="VBox" alignment="CENTER" spacing="10">
+            <Label text="Thread length L (m):" />
+            <Slider fx:id="sliderLength" max="1.0" min="0.1" showTickLabels="true" showTickMarks="true" value="0.5" />
+
+            <Label text="Mass of the ball (kg):" />
+            <Slider fx:id="sliderMass" max="2.0" min="0.01" showTickLabels="true" showTickMarks="true" value="0.1" />
+
+            <Label text="Deflection angle (𝜃):" />
+            <Slider fx:id="sliderAngle" max="60" min="0" showTickLabels="true" showTickMarks="true" value="30" />
+
+            <Label text="KE:" />
+            <TextField fx:id="KeTextField" disable="true" />
+
+            <Label text="PE:" />
+            <TextField fx:id="PeTextField" disable="true" />
+
+            <LineChart fx:id="energyChart">
+                <xAxis>
+                    <CategoryAxis side="BOTTOM" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" />
+                </yAxis>
+            </LineChart>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="start" text="Start" />
+            <Button fx:id="stop" text="Stop" />
+            <Button fx:id="refresh" text="Refresh" />
+            <Button fx:id="changeScene" text="Change Scene" />
+        </HBox>
+    </bottom>
+</BorderPane>
